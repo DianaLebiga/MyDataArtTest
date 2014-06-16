@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29301765-7B9D-4604-B743-2CC83AFD9A78}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Test2</RootNamespace>
+    <AssemblyName>Test2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBase\DataBaseContext.cs" />
+    <Compile Include="DataBase\Tables\BaseTable.cs" />
+    <Compile Include="DataBase\Tables\Job.cs" />
+    <Compile Include="DataBase\Tables\Person.cs" />
+    <Compile Include="Exception\BaseException.cs" />
+    <Compile Include="Exception\JobException\JobNameLengthException.cs" />
+    <Compile Include="Exception\JobException\JobNameNullException.cs" />
+    <Compile Include="Exception\JobException\JobIsNullException.cs" />
+    <Compile Include="Exception\JobException\JobWrongIdException.cs" />
+    <Compile Include="Exception\PersonException\PersonAgeLengthException.cs" />
+    <Compile Include="Exception\PersonException\PersonLastNameLengthException.cs" />
+    <Compile Include="Exception\PersonException\PersonFirstNameLengthException.cs" />
+    <Compile Include="Exception\PersonException\PersonLastNameNullException.cs" />
+    <Compile Include="Exception\PersonException\PersonFirstNameNullException.cs" />
+    <Compile Include="Exception\PersonException\PersonIsNullException.cs" />
+    <Compile Include="Exception\PersonException\PersonWrongIdException.cs" />
+    <Compile Include="Operations\JobOperations\BaseAddUpdateJobOperation.cs" />
+    <Compile Include="Operations\JobOperations\EnumJob.cs" />
+    <Compile Include="Operations\JobOperations\AddJobOperation.cs" />
+    <Compile Include="Operations\JobOperations\ChangeJobOperation.cs" />
+    <Compile Include="Operations\JobOperations\DeleteJobOperation.cs" />
+    <Compile Include="Operations\PersonOperations\AddPersonOperation.cs" />
+    <Compile Include="Operations\BaseOperation.cs" />
+    <Compile Include="Operations\PersonOperations\BaseAddUpdatePersonOperation.cs" />
+    <Compile Include="Operations\PersonOperations\ChangePersonOperation.cs" />
+    <Compile Include="Operations\PersonOperations\DeletePersonOperation.cs" />
+    <Compile Include="Operations\PersonOperations\EnumPerson.cs" />
+    <Compile Include="Operations\PersonOperations\SearchPersonByIdOperation.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
